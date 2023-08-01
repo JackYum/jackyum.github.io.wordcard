@@ -10,8 +10,8 @@ let currentIndex = 0;
 // 每天记忆多少个单词
 let learn_count = 120;
 
-// 获取当前日期
-const now = new Date();
+// 获取当前日期（当前时区时间）
+const now = new Date(new Date() - new Date().getTimezoneOffset() * 60000);
 
 // 指定日期
 const targetDate = new Date('2023-08-01');

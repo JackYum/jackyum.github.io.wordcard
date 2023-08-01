@@ -6,7 +6,6 @@ function handleFileSelect() {
         .then(response => response.text())
         .then(data => {
             words = parseCSV(data);
-            console.log('2-----', words.length)
             if (words.length > 0) {
                 currentIndex = 0;
                 initLazyLoad(); // 在请求完成后生成单词列表

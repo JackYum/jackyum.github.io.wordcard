@@ -174,6 +174,11 @@ function showWord(index) {
     wordLinkElement.innerText = today_learning_and_review_words[index].word;
     wordLinkElement.href = `https://m.youdao.com/result?lang=en&word=${encodeURIComponent(today_learning_and_review_words[index].word)}`;
 
+    const audioPlayerUkElement = document.getElementById('audioPlayerUk');
+    audioPlayerUkElement.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(today_learning_and_review_words[index].word)}&type=1`
+    const audioPlayerUsElement = document.getElementById('audioPlayerUs');
+    audioPlayerUsElement.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(today_learning_and_review_words[index].word)}&type=2`
+
     let new_learned = currentIndex > today_learning_words.length ? today_learning_words.length : currentIndex
     let total_learned = kiled_words.length + (day_number - 1) * learn_count + new_learned
     let review_learned = currentIndex - today_learning_words.length < 0 ? 0 : currentIndex - today_learning_words.length
@@ -181,7 +186,13 @@ function showWord(index) {
     document.getElementById('totalWords').innerText = '总单词量：' + total_learned + '/' + total_words.length + '，新学：' + new_learned + '/' + today_learning_words.length + '，复习：' + review_learned + '/' + today_review_words.length;
     document.getElementById('id').innerText = today_learning_and_review_words[index].id;
     // document.getElementById('word').innerText = today_learning_and_review_words[index].word;
-    document.getElementById('pronunciation').innerText = today_learning_and_review_words[index].pronunciation;
+
+    let pronunciation = today_learning_and_review_words[index].pronunciation
+        .replaceAll('[', '/')
+        .replaceAll(']', '/')
+        .split(' ');
+    document.getElementById('pronunciationUk').innerText = pronunciation[0];
+    document.getElementById('pronunciationUs').innerText = pronunciation[1];
     document.getElementById('translation').innerText = today_learning_and_review_words[index].translation;
 }
 

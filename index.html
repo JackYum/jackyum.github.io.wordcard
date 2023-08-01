@@ -34,7 +34,16 @@
         <h1 id="word">
             <a href="#" id="wordLink" target="_blank">Word</a>
         </h1>
-        <p id="pronunciation">Pronunciation</p>
+
+        <div class="pronunciation-content">
+            <p id="pronunciationUk">Pronunciation</p>
+            <button id="playUk" class="play"><i class="fas fa-volume-up"></i></button>
+            <p id="pronunciationUs">Pronunciation</p>
+            <button id="playUs" class="play"><i class="fas fa-volume-up"></i></button>
+            <audio id="audioPlayerUk" src="https://dict.youdao.com/dictvoice?audio=hello&type=1"></audio>
+            <audio id="audioPlayerUs" src="https://dict.youdao.com/dictvoice?audio=hello&type=2"></audio>
+        </div>
+
         <p id="translation">Translation</p>
         <div class="button-wrapper">
             <button id="lastButton" onclick="showLastWord()">Last Word</button>
@@ -43,5 +52,22 @@
     </div>
 </div>
 <script src="js/script.js"></script>
+<script>
+    const audioUk = document.getElementById('audioPlayerUk');
+    const audioUs = document.getElementById('audioPlayerUs');
+    const playUk = document.getElementById('playUk');
+    const playUs = document.getElementById('playUs');
+    playUk.addEventListener('click', function () {
+        audioUs.pause();
+        audioUk.currentTime = 0;
+        audioUk.play();
+    });
+    playUs.addEventListener('click', function () {
+        audioUk.pause();
+        audioUs.currentTime = 0;
+        audioUs.play();
+    });
+
+</script>
 </body>
 </html>

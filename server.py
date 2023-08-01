@@ -11,7 +11,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 self.send_response(200)
                 self.send_header('Content-type', 'text/csv')
                 # 添加CORS头信息，允许来自 http://localhost:63344 的请求访问该资源
-                self.send_header('Access-Control-Allow-Origin', 'http://localhost:63344')
+                self.send_header('Access-Control-Allow-Origin', 'http://localhost:9527')
                 self.end_headers()
                 self.wfile.write(file.read())
         else:

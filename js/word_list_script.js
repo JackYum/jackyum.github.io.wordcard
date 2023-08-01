@@ -58,6 +58,7 @@ function handleLazyLoad() {
             idCell.innerText = words[i].id;
             wordCell.appendChild(link);
             translationCell.innerText = words[i].translation;
+            translationCell.className='translationCell'
             listItem.appendChild(idCell);
             listItem.appendChild(wordCell);
             listItem.appendChild(translationCell);

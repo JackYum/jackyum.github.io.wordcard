@@ -22,7 +22,7 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
 
 let day_number = diffDays
-console.log('day_number',day_number);
+console.log('day_number', day_number);
 // document.getElementById('fileInput').addEventListener('change', handleFileSelect);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -238,4 +238,25 @@ function jumpToWord() {
 
     // 清空输入框
     jumpInput.value = '';
+}
+
+window.onload = function () {
+    // 禁止双击缩放
+    document.addEventListener('touchstart', function (event) {
+        if (event.touches.length > 1) {
+            event.preventDefault();
+        }
+    });
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+    // 双指缩放
+    document.addEventListener('gesturestart', function (event) {
+        event.preventDefault();
+    });
 }

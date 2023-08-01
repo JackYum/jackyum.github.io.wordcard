@@ -1,27 +1,34 @@
 let words = [];
 let currentIndex = 0;
 
-document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+// document.getElementById('fileInput').addEventListener('change', handleFileSelect);
 
-function handleFileSelect(event) {
-    const file = event.target.files[0];
-    if (!file) {
-        alert('请选择CSV文件！');
-        return;
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    // 在页面加载完DOM后执行的方法
+    // 此处可以执行初始化的逻辑
 
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        const contents = e.target.result;
-        words = parseCSV(contents);
-        if (words.length > 0) {
-            currentIndex = 0;
-            showWord(currentIndex);
-        } else {
-            alert('CSV文件格式错误或文件为空！');
-        }
-    };
-    reader.readAsText(file);
+    handleFileSelect()
+    // 示例：显示第一个单词卡片
+    // showWord(1);
+    updateWordList();
+
+});
+function handleFileSelect() {
+    fetch('t_word.csv')
+        .then(response => response.text())
+        .then(data => {
+            words = parseCSV(data);
+            if (words.length > 0) {
+                currentIndex = 0;
+                showWord(currentIndex);
+            } else {
+                alert('CSV文件格式错误或文件为空！');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching the CSV file:', error);
+            alert('无法获取CSV文件，请确保服务器已经运行并提供文件！');
+        });
 }
 
 function parseCSVOld(csvContent) {
@@ -66,6 +73,23 @@ function showNextWord() {
 }
 
 function showLastWord() {
-    currentIndex = (currentIndex - 1) % words.length;
+    currentIndex = (currentIndex - 1 + words.length) % words.length;
     showWord(currentIndex);
+}
+
+// 新增函数：在左边显示单词列表
+function updateWordList() {
+    const wordListElement = document.getElementById('wordList');
+    wordListElement.innerHTML = '';
+
+    for (let i = currentIndex - 10; i <= currentIndex + 10; i++) {
+        if (i >= 0 && i < words.length) {
+            const wordListItem = document.createElement('div');
+            wordListItem.innerText = words[i].word;
+            if (i === currentIndex) {
+                wordListItem.classList.add('current-word');
+            }
+            wordListElement.appendChild(wordListItem);
+        }
+    }
 }

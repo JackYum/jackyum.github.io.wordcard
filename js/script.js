@@ -58,8 +58,16 @@ function parseCSV(csvContent) {
 
 
 function showWord(index) {
+    // 获取单词的文本和链接元素
+    const wordElement = document.getElementById('word');
+    const wordLinkElement = document.getElementById('wordLink');
+    // 设置 Word 链接的文本和目标链接
+    wordLinkElement.innerText = words[index].word;
+    wordLinkElement.href = `https://m.youdao.com/result?lang=en&word=${encodeURIComponent(words[index].word)}`;
+
+
     document.getElementById('id').innerText = words[index].id;
-    document.getElementById('word').innerText = words[index].word;
+    // document.getElementById('word').innerText = words[index].word;
     document.getElementById('pronunciation').innerText = words[index].pronunciation;
     document.getElementById('translation').innerText = words[index].translation;
 }

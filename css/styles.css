@@ -93,3 +93,7 @@ button {
     height: 30px; /* 设置输入框的宽度为 200px */
     margin-right: 10px; /* 设置输入框的右边距为 10px */
 }
+#wordLink{
+    text-decoration: none; /* 去掉下划线 */
+    color: #000000; /* 修改颜色，将 "#your-color" 替换为您想要的颜色值 */
+}

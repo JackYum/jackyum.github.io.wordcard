@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词卡片</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--<input type="file" id="fileInput" accept=".csv">-->
+<div class="card">
+    <div id="wordList"></div> <!-- 新增的列表容器 -->
+    <div class="card-content">
+        <h1 id="id" class="id">Id</h1>
+        <h1 id="word">Word</h1>
+        <p id="pronunciation">Pronunciation</p>
+        <p id="translation">Translation</p>
+        <div class="button-wrapper">
+            <button id="lastButton" onclick="showLastWord()">Last Word</button>
+            <button id="nextButton" onclick="showNextWord()">Next Word</button>
+        </div>
+    </div>
+</div>
+<script src="script_remote_csv.js"></script>
+</body>
+</html>

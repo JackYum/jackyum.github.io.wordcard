@@ -183,7 +183,7 @@ function showWord(index) {
     let total_learned = kiled_words.length + (day_number - 1) * learn_count + new_learned
     let review_learned = currentIndex - today_learning_words.length < 0 ? 0 : currentIndex - today_learning_words.length
 
-    document.getElementById('totalWords').innerText = '总单词量：' + total_learned + '/' + total_words.length + '，新学：' + new_learned + '/' + today_learning_words.length + '，复习：' + review_learned + '/' + today_review_words.length;
+    document.getElementById('totalWords').innerText = '总量 ' + total_learned + '/' + total_words.length + '，新学 ' + new_learned + '/' + today_learning_words.length + '，复习 ' + review_learned + '/' + today_review_words.length;
     document.getElementById('id').innerText = today_learning_and_review_words[index].id;
     // document.getElementById('word').innerText = today_learning_and_review_words[index].word;
 

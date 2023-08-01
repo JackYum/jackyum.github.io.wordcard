@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有单词</title>
+    <style>
+        /* 添加一些基本的样式 */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>all</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Word</th>
+        <th>Translation</th> <!-- 新增的表头单元格 -->
+    </tr>
+    </thead>
+    <tbody id="wordList">
+    <!-- 这里将由 JavaScript 生成单词列表 -->
+    </tbody>
+</table>
+<script src="js/word_list_script.js">
+
+</script>
+</body>
+</html>

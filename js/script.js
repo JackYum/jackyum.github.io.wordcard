@@ -13,13 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
     updateWordList();
 
 });
+
 function handleFileSelect() {
-    fetch('t_word.csv')
+    fetch('data/t_word.csv')
         .then(response => response.text())
         .then(data => {
             words = parseCSV(data);
             if (words.length > 0) {
-                currentIndex = 0;
+                // 使用 JavaScript 处理锚点跳转
+                const urlHash = window.location.hash; // 获取 URL 中的锚点部分
+
+                if (urlHash) {
+                    const wordId = urlHash.substring(1); // 去除锚点中的 # 符号
+                    console.log('currentIndex1', currentIndex)
+                    // showWord(11)
+                    currentIndex = wordId - 1;
+                    console.log('currentIndex2', currentIndex)
+                }
                 showWord(currentIndex);
             } else {
                 alert('CSV文件格式错误或文件为空！');
@@ -31,18 +41,6 @@ function handleFileSelect() {
         });
 }
 
-function parseCSVOld(csvContent) {
-    const lines = csvContent.split(/\r?\n/);
-    const parsedWords = [];
-    for (const line of lines) {
-        // id	word	认识与否	pronounce	chinese
-        const [id, word, know, pronunciation, translation] = line.split(',');
-        if (word) {
-            parsedWords.push({id, word, pronunciation, translation});
-        }
-    }
-    return parsedWords;
-}
 function parseCSV(csvContent) {
     const lines = csvContent.split(/\r?\n/);
     const parsedWords = [];

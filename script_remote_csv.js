@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 function handleFileSelect() {
-    fetch('http://39.98.107.157:8089/')
+    fetch('http://39.98.107.157:8089')
         .then(response => response.text())
         .then(data => {
             words = parseCSV(data);

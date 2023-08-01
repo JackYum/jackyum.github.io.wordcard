@@ -91,3 +91,19 @@ function updateWordList() {
         }
     }
 }
+// 跳转到指定编号的单词
+function jumpToWord() {
+    const totalWordCount = words.length;
+    const jumpInput = document.getElementById('jumpInput');
+    const targetWordIndex = parseInt(jumpInput.value) - 1; // 用户输入的编号从1开始，数组索引从0开始，所以需要减1
+
+    if (Number.isNaN(targetWordIndex) || targetWordIndex < 0 || targetWordIndex >= totalWordCount) {
+        alert('无效的单词编号，请输入有效的编号！');
+    } else {
+        currentIndex = targetWordIndex;
+        showWord(currentIndex);
+    }
+
+    // 清空输入框
+    jumpInput.value = '';
+}

@@ -30,6 +30,7 @@ p {
     font-size: 16px;
     margin: 8px 0;
 }
+
 /* 使用 CSS 样式实现文本溢出时显示省略号 */
 #translation {
     /* 设置文本溢出时显示省略号 */
@@ -49,6 +50,7 @@ button {
     cursor: pointer;
     font-size: 16px;
 }
+
 /* 使用 Grid 布局将按钮居中 */
 .card-content {
     display: grid;
@@ -62,16 +64,32 @@ button {
     display: flex;
     gap: 30px; /* 按钮之间的间隔 */
 }
-.id{
+
+.id {
     color: #ccc;
 }
 
 /* 设置返回图标链接的样式 */
 .return-link {
     position: absolute;
-    top: 20px;
+    top: 160px;
     left: 20px;
     color: #333;
     font-size: 24px;
     text-decoration: none;
+}
+
+.jump-box {
+    position: absolute;
+    top: 160px;
+    left: 200px;
+    color: #333;
+    font-size: 24px;
+    text-decoration: none;
+}
+#jumpInput {
+    font-size: 20px; /* 设置输入框的字体大小为 16px */
+    width: 120px; /* 设置输入框的宽度为 200px */
+    height: 30px; /* 设置输入框的宽度为 200px */
+    margin-right: 10px; /* 设置输入框的右边距为 10px */
 }

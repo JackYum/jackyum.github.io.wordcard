@@ -6,7 +6,9 @@ let today_review_words = [];
 let today_learning_and_review_words = [];
 
 let currentIndex = 0;
-let learn_count = 10;
+
+// 每天记忆多少个单词
+let learn_count = 120;
 
 // 获取当前日期
 const now = new Date();

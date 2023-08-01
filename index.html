@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--  在<meta>标签中添加了user-scalable=no属性，该属性禁用了用户对页面进行双击缩放的功能  -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!--  在<meta>标签中添加了user-scalable=no属性（Safari 浏览器无效），该属性禁用了用户对页面进行双击缩放的功能  -->
+    <!--  针对Safari 浏览器 maximum-scale=1.0 将限制页面的最大缩放为100% -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
     <title>单词卡片</title>
     <!-- 引入 Font Awesome 图标库的 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
